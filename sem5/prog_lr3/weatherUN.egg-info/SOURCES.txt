@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+tests/__init__.py
+tests/test_getweatherdata.py
+weatherUN/__init__.py
+weatherUN/getweatherdata.py
+weatherUN/weathermapkey.py
+weatherUN.egg-info/PKG-INFO
+weatherUN.egg-info/SOURCES.txt
+weatherUN.egg-info/dependency_links.txt
+weatherUN.egg-info/entry_points.txt
+weatherUN.egg-info/requires.txt
+weatherUN.egg-info/top_level.txt

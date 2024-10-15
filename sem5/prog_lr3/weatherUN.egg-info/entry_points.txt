@@ -1,0 +1,2 @@
+[console_scripts]
+weatherUN = weatherUN.getweatherdata:main
