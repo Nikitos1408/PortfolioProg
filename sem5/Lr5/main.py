@@ -47,9 +47,12 @@ class Currency:
             print("Нет данных")
             return
 
-        gr_names = ['GBP','USD','EUR']
+        gr_names = []
+        for valute in data:
+            for charcode, (name, value) in valute.items():
+                gr_names.append(charcode)
+        
         gr_values = []
-
         for valute in data:
             for charcode, (name, value) in valute.items():
                 if charcode in gr_names:
