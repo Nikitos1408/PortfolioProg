@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Rates</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+<h1>Курсы валют - выполнил Угарин Никита</h1>
+<h2>Client_id: <span id="clientId">Загрузка...</span></h2>
+<h2>Выбор валюты</h2>
+<select id="currencySelect">
+    <option value="USD">USD - Доллар США</option>
+    <option value="EUR">EUR - Евро</option>
+</select>
+<button onclick="selectCurrency()">Выбор</button>
+
+<h1><div id="currencyRate">Валюта не вырбрана</div></h2>
+
+
+<script>
+    const socket = io();
+
+    socket.on('connected', (data) => {
+        console.log(`Клиент ${data.id} подключился`);
+        document.getElementById('clientId').innerText = data.id;
+    });
+
+    function selectCurrency() {
+        const currencyCode = document.getElementById('currencySelect').value;
+        socket.emit('select_currency', { currency_code: currencyCode });
+    }
+
+    socket.on('update', (data) => {
+        const { currency_code, current_rate, previous_rate } = data;
+        let displayText = `Курс ${currency_code}: ${current_rate}`;
+        if (previous_rate !== null) {
+            displayText += ` (предыдущий: ${previous_rate})`;
+        }
+        document.getElementById('currencyRate').innerText = displayText;
+    });
+
+    socket.on('currency_selected', (data) => {
+        console.log(data.message);
+        document.getElementById('currencyRate').innerText = `Обновление курса - ${data.message.split(' ')[2]}`;
+    });
+</script>
+</body>
+</html>
