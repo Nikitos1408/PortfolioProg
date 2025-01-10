@@ -14,3 +14,8 @@ pip install fastapi uvicorn pyjwt
 ~~~
 uvicorn main:app --reload
 ~~~
+3. Выполнить POST запрос к /token с именем пользователя и паролем (в form-data).
+
+4. Получить access token из ответа.
+
+5. Выполнить GET запрос к /bonus, добавив заголовок Authorization: Bearer <ваш токен>.
