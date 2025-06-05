@@ -1,7 +1,8 @@
 # Л.Р. 6 - выполнил: Угарин Н.А.
 
-### Шаг 1:
-![image](https://github.com/user-attachments/assets/da2cc262-f69a-4d65-a92d-805dea1dd31d)
+### Шаг 1: В терминале пишем
+![image](https://github.com/user-attachments/assets/b5dc6a7b-f707-4dc7-991f-e3cd76080570)
+
 
 ### Шан 2: Запуск main.py
 
