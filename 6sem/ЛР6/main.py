@@ -53,7 +53,7 @@ if __name__ == '__main__':
     try:
         from fermat_cy import fermat_factorization_cy
         
-        _MAX_ITER_VALUE = 10**7  # Define the max_iter value to be passed
+        _MAX_ITER_VALUE = 10**7 
 
         stmt_for_cython = "res = [fermat_factorization_cy(i, _MAX_ITER_VALUE) for i in TEST_LST]"
         
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     except ImportError:
         print("Cython module not compiled. Please run: python setup.py build_ext --inplace")
 
-    # Plotting
+    # Визуализация
     try:
         if cy_time is not None:
             plt.bar(['Python', 'Cython'], [py_time[0], cy_time[0]])
